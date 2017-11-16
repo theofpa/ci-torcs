@@ -99,6 +99,10 @@ class State(Value):
             sensor_dict,
             'focus'
         )
+        for i in range(1,17):
+            print(self.distances_from_edge[i],end=' ')
+        print()
+        sys.stdout.flush()
 
     @property
     def distances_from_egde_valid(self):
