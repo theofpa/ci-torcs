@@ -39,8 +39,10 @@ class Driver:
         of range finders. During regular execution, a 19-valued vector of track
         distances in these directions is returned in ``state.State.tracks``.
         """
-        return -90, -75, -60, -45, -30, -20, -15, -10, -5, 0, 5, 10, 15, 20, \
-            30, 45, 60, 75, 90
+        #return -90, -75, -60, -45, -30, -20, -15, -10, -5, 0, 5, 10, 15, 20, \
+        #    30, 45, 60, 75, 90
+        return -90, -80, -70, -60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, \
+            50, 60, 70, 80, 90
 
     def on_shutdown(self):
         """
@@ -97,8 +99,8 @@ class Driver:
             if carstate.rpm > 8000:
                 command.gear = carstate.gear + 1
 
-        # else:
-        #     command.brake = min(-acceleration, 1)
+        else:
+            command.brake = 0.5*min(-acceleration, 1)
 
         if carstate.rpm < 2500:
             command.gear = carstate.gear - 1
