@@ -64,11 +64,11 @@ class Driver:
         drivers) successfully driven along the race track.
         """
         command = Command()
-        self.steer(carstate, 0.0, command)
+        self.steer(carstate, -0.8, command)
 
         # ACC_LATERAL_MAX = 6400 * 5
         # v_x = min(80, math.sqrt(ACC_LATERAL_MAX / abs(command.steering)))
-        v_x = 80
+        v_x = 20
 
         self.accelerate(carstate, v_x, command)
 
@@ -100,7 +100,7 @@ class Driver:
                 command.gear = carstate.gear + 1
 
         else:
-            command.brake = 0.5*min(-acceleration, 1)
+            command.brake = min(-acceleration, 1)
 
         if carstate.rpm < 2500:
             command.gear = carstate.gear - 1
