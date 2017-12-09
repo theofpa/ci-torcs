@@ -64,11 +64,11 @@ class Driver:
         drivers) successfully driven along the race track.
         """
         command = Command()
-        self.steer(carstate, -0.8, command)
+        self.steer(carstate, 0, command)
 
         # ACC_LATERAL_MAX = 6400 * 5
         # v_x = min(80, math.sqrt(ACC_LATERAL_MAX / abs(command.steering)))
-        v_x = 20
+        v_x = 60
 
         self.accelerate(carstate, v_x, command)
 
